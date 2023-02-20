@@ -138,7 +138,7 @@
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
             <li class="nav-item menu-open">
-              <a href="#" class="nav-link active">
+              <a href="#" class="nav-link ">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
                   Dashboard
@@ -146,8 +146,8 @@
                 </p>
               </a>
             </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
+            <li class="nav-item menu-open">
+              <a href="#" class="nav-link active">
                 <i class="nav-icon fas fa-table"></i>
                 <p>
                   Quản lý
@@ -156,7 +156,7 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="./data.html" class="nav-link">
+                  <a href="./data.html" class="nav-link active">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Lịch học</p>
                   </a>
@@ -182,7 +182,7 @@
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
-                <li class="breadcrumb-item active">Lịch học</li>
+                <li class="breadcrumb-item">Lịch học</li>
               </ol>
             </div>
           </div>
@@ -200,6 +200,7 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
+
                   <table id="example1" class="table table-bordered">
                   </table>
                 </div>
@@ -269,45 +270,42 @@
     var COLUMNS = [
       { data: "TenLop", title: "Tên lớp" },
       {
-        data: "ThuHai", title: "Thứ 2", render: function (data, type, row) {
-          return data !== "" ? '<buttonc class="btn btn-outline-info btn-sm">' + data + '</button>' : "";
-        }
+        data: "ThuHai", title: "Thứ 2"
       },
       {
-        data: "ThuBa", title: "Thứ 3", render: function (data, type, row) {
-          return data !== "" ? '<buttonc class="btn btn-outline-info btn-sm">' + data + '</button>' : "";
-        }
+        data: "ThuBa", title: "Thứ 3"
       },
       {
-        data: "ThuTu", title: "Thứ 4", render: function (data, type, row) {
-          return data !== "" ? '<buttonc class="btn btn-outline-info btn-sm">' + data + '</button>' : "";
-        }
+        data: "ThuTu", title: "Thứ 4"
       },
       {
-        data: "ThuNam", title: "Thứ 5", render: function (data, type, row) {
-          return data !== "" ? '<buttonc class="btn btn-outline-info btn-sm">' + data + '</button>' : "";
-        }
+        data: "ThuNam", title: "Thứ 5"
       },
       {
-        data: "ThuSau", title: "Thứ 6", render: function (data, type, row) {
-          return data !== "" ? '<buttonc class="btn btn-outline-info btn-sm">' + data + '</button>' : "";
-        }
+        data: "ThuSau", title: "Thứ 6"
       },
       {
-        data: "ThuBay", title: "Thứ 7", render: function (data, type, row) {
-          return data !== "" ? '<buttonc class="btn btn-outline-info btn-sm">' + data + '</button>' : "";
-        }
+        data: "ThuBay", title: "Thứ 7"
       },
       {
-        data: "ChuNhat", title: "Chủ nhật", render: function (data, type, row) {
-          return data !== "" ? '<buttonc class="btn btn-outline-info btn-sm">' + data + '</button>' : "";
-        }
-      },
+        data: "ChuNhat", title: "Chủ nhật",
+      }
     ];
 
     $(function () {
       $("#example1").DataTable({
         "columns": COLUMNS,
+        "columnDefs": [
+          {
+            targets: [1, 2, 3, 4, 5, 6, 7], render: function (data, type, row) {
+              return data !== "" ? '<buttonc class="btn btn-outline-info btn-sm">' + data + '</button>' : "";
+            }
+          }, {
+            targets: [0], render: function (data, type, row) {
+              return '' + data;
+            }
+          }
+        ],
         "data": DATA,
         "rowsGroup": [0],
         "responsive": true, "lengthChange": false, "autoWidth": true, "ordering": false,

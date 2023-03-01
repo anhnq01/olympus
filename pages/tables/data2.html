@@ -156,13 +156,13 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="./data.html" class="nav-link active">
+                  <a href="./data.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Lịch học</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="./data2.html" class="nav-link">
+                  <a href="pages/tables/data2.html" class="nav-link active">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Lịch học 2</p>
                   </a>
@@ -187,7 +187,7 @@
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
                 <li class="breadcrumb-item">Lịch học</li>
               </ol>
             </div>
@@ -262,39 +262,20 @@
   <script src="../../dist/js/adminlte.min.js"></script>
   <!-- Page specific script -->
   <script>
-    var DATA = [
-      { TenLop: "02-05", ThuHai: "", ThuBa: "", ThuTu: "", ThuNam: "", ThuSau: "", ThuBay: "17:30", ChuNhat: "17:30" },
-      { TenLop: "31-05", ThuHai: "", ThuBa: "18:30", ThuTu: "", ThuNam: "", ThuSau: "", ThuBay: "", ChuNhat: "16:00" },
-      { TenLop: "08-07", ThuHai: "16:30", ThuBa: "", ThuTu: "20:00", ThuNam: "", ThuSau: "", ThuBay: "", ChuNhat: "" },
-      { TenLop: "07-09", ThuHai: "15:00", ThuBa: "", ThuTu: "17:00", ThuNam: "", ThuSau: "", ThuBay: "", ChuNhat: "" },
-      { TenLop: "10-01", ThuHai: "17:30", ThuBa: "", ThuTu: "18:30", ThuNam: "", ThuSau: "", ThuBay: "", ChuNhat: "" },
-      { TenLop: "25-07", ThuHai: "", ThuBa: "", ThuTu: "", ThuNam: "", ThuSau: "18:30", ThuBay: "", ChuNhat: "" },
-      { TenLop: "09-08", ThuHai: "", ThuBa: "", ThuTu: "", ThuNam: "", ThuSau: "17:00", ThuBay: "", ChuNhat: "15:00" },
-      { TenLop: "04-10", ThuHai: "", ThuBa: "17:00", ThuTu: "", ThuNam: "", ThuSau: "", ThuBay: "", ChuNhat: "19:00" },
-      { TenLop: "27-07", ThuHai: "", ThuBa: "", ThuTu: "", ThuNam: "", ThuSau: "", ThuBay: "15:00", ChuNhat: "" }
-    ];
+      var DATA = [{ TenLop: "Kids", NgayHoc: "4, 18, 25" },
+      { TenLop: "2-5", NgayHoc: " 4, 5, 12, 18, 19, 25, 26" },
+      { TenLop: "25-7", NgayHoc: "3, 10, 17, 24 " },
+      { TenLop: "8-7", NgayHoc: "1, 6, 8, 15, 21, 22, 28" },
+      { TenLop: "27-7", NgayHoc: "1, 4, 7 14, 18, 21, 25, 28" },
+      { TenLop: "9/8", NgayHoc: "3, 5, 10, 12, 17, 19, 24, 26" },
+      { TenLop: "7/9", NgayHoc: "1, 8, 13, 15, 20, 22, 27" },
+      { TenLop: "4-10", NgayHoc: "5, 7, 12, 14, 19, 21, 26, 28" },
+      { TenLop: "31-5", NgayHoc: "5, 7, 12, 14, 19, 21, 26, 28" },
+      { TenLop: "10-1", NgayHoc: "6, 8, 13, 15, 20, 22, 27" }];
     var COLUMNS = [
       { data: "TenLop", title: "Tên lớp" },
       {
-        data: "ThuHai", title: "Thứ 2"
-      },
-      {
-        data: "ThuBa", title: "Thứ 3"
-      },
-      {
-        data: "ThuTu", title: "Thứ 4"
-      },
-      {
-        data: "ThuNam", title: "Thứ 5"
-      },
-      {
-        data: "ThuSau", title: "Thứ 6"
-      },
-      {
-        data: "ThuBay", title: "Thứ 7"
-      },
-      {
-        data: "ChuNhat", title: "Chủ nhật",
+        data: "NgayHoc", title: "Ngày học"
       }
     ];
 
@@ -303,7 +284,7 @@
         "columns": COLUMNS,
         "columnDefs": [
           {
-            targets: [1, 2, 3, 4, 5, 6, 7], render: function (data, type, row) {
+            targets: [1], render: function (data, type, row) {
               return data !== "" ? '<buttonc class="btn btn-outline-info btn-sm">' + data + '</button>' : "";
             }
           }, {
